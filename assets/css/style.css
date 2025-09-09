@@ -1,0 +1,30 @@
+/*
+  Arquivo CSS Principal (style.css)
+  Contém estilos globais, reset CSS, tipografia, cores e layout básico.
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+
