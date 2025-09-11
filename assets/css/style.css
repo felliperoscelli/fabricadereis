@@ -3,28 +3,660 @@
   Contém estilos globais, reset CSS, tipografia, cores e layout básico.
 */
 
+:root {
+    --primary-color: #2c3e50; /* Azul escuro para cabeçalhos e botões */
+    --secondary-color: #3498db; /* Azul claro para CTAs secundários */
+    --accent-color: #e74c3c; /* Vermelho para destaque */
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --light-gray: #ecf0f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
-  padding: 20px 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-h1, h2, h3 {
-  color: #333;
+/* Header */
+header {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--secondary-color);
 }
 
-p {
-  margin-bottom: 10px;
+header .logo {
+    float: left;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+header nav {
+    float: right;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 15px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+header a:hover {
+    color: var(--secondary-color);
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    color: #fff;
+    background: var(--secondary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.btn-secondary {
+    display: inline-block;
+    color: var(--primary-color);
+    background: var(--light-gray);
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    border: 1px solid var(--primary-color);
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-acesso {
+    display: block;
+    width: fit-content;
+    margin: 10px 0;
+    color: #fff;
+    background: var(--primary-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-acesso:hover {
+    background: var(--secondary-color);
+}
+
+.link-secundario {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.link-secundario:hover {
+    text-decoration: underline;
+}
+
+/* Seções Gerais */
+section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+section h1, section h2, section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+/* Hero Section */
+#hero {
+    background: var(--primary-color);
+    color: #fff;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Pilares Section */
+#pilares {
+    background: var(--light-gray);
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.pilar-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.pilar-item:hover {
+    transform: translateY(-5px);
+}
+
+.pilar-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.pilar-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Formações Section */
+#formacoes {
+    background: #fff;
+}
+
+.formacoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.formacao-item {
+    background: var(--light-gray);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.formacao-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.formacao-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Depoimentos Section */
+#depoimentos, #depoimentos-comunidades {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+#depoimentos h2, #depoimentos-comunidades h2 {
+    color: #fff;
+}
+
+.depoimento-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+.depoimento-item p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.depoimento-item .autor {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Diagnóstico Page */
+#diagnostico-intro {
+    background: var(--light-gray);
+    padding: 60px 0;
+}
+
+#diagnostico-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#diagnostico-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#diagnostico-form select, #diagnostico-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#diagnostico-form textarea {
+    resize: vertical;
+}
+
+#diagnostico-form button[type="submit"] {
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+/* Resultado Page */
+#resultado-diagnostico {
+    background: var(--light-gray);
+    padding: 60px 0;
+}
+
+.chart-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.resultado-texto {
+    margin-top: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resultado-texto h2 {
+    color: var(--accent-color);
+}
+
+.resultado-texto #pilar-foco {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.recomendacao-produto {
+    margin-top: 40px;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recomendacao-produto h3, .recomendacao-produto h2 {
+    color: #fff;
+}
+
+.recomendacao-produto .btn-primary {
+    background: var(--accent-color);
+}
+
+.recomendacao-produto .btn-primary:hover {
+    background: #c0392b;
+}
+
+.cta-secundario {
+    margin-top: 30px;
+}
+
+/* Para Comunidades Page */
+#intro-comunidades {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 60px 0;
+}
+
+#intro-comunidades h1 {
+    color: #fff;
+}
+
+#beneficios-comunidades {
+    background: #fff;
+}
+
+#beneficios-comunidades ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#beneficios-comunidades li {
+    background: var(--light-gray);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+#workshops {
+    background: var(--light-gray);
+}
+
+.workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.workshop-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.workshop-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.workshop-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#contato {
+    background: #fff;
+}
+
+.google-form-placeholder {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+/* Patrono Page */
+#convite-patrono {
+    background: var(--light-gray);
+    padding: 60px 0;
+}
+
+.mensagem-confirmacao {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.convite-texto {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.convite-texto p {
+    margin-bottom: 15px;
+}
+
+.opcoes-acesso {
+    margin-top: 40px;
+}
+
+.opcoes-acesso .ou {
+    margin: 20px 0;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Product Detail Pages */
+#produto-detalhe {
+    background: var(--light-gray);
+    padding: 60px 0;
+}
+
+#produto-detalhe h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#produto-detalhe .subtitulo {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.conteudo-principal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.conteudo-principal p {
+    margin-bottom: 15px;
+}
+
+.beneficios ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+}
+
+.beneficios li {
+    background: var(--light-gray);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-left: 5px solid var(--accent-color);
+}
+
+.cta-pacto {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.cta-pacto h2 {
+    color: #fff;
+}
+
+.cta-pacto .btn-primary {
+    background: var(--accent-color);
+}
+
+.cta-pacto .btn-primary:hover {
+    background: #c0392b;
+}
+
+.desafio-pacto {
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.depoimentos-produto {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Access Pages */
+#acesso-liberado {
+    background: var(--light-gray);
+    padding: 60px 0;
+}
+
+.mensagem-sucesso {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.instrucoes-acesso {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.instrucoes-acesso h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.instrucoes-acesso ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.instrucoes-acesso li {
+    margin-bottom: 10px;
+}
+
+.proximos-passos {
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.proximos-passos h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .logo, header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header li {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .pilares-grid, .formacoes-grid, .workshop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .pilar-item, .formacao-item, .workshop-item, .depoimento-item, .convite-texto, .instrucoes-acesso, .proximos-passos, .resultado-texto, .recomendacao-produto {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 
