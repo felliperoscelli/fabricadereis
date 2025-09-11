@@ -1,14 +1,75 @@
-<!--
-  PÁGINA: Convite ao Patrono (patrono.html)
-  OBJETIVO: Página intermediária que oferece a doação opcional.
-  NOTA: O usuário chega aqui APÓS preencher o Google Form do Pacto.
-  COMPONENTES:
-  - Mensagem de Confirmação: "Seu Pacto foi recebido!"
-  - Texto do Convite à doação.
-  - Botão de Destaque: [APOIAR A MISSÃO] -> Link de pagamento Stripe/Mercado Pago.
-  - Link Discreto: [ACESSAR SEM DOAR] -> Leva para a página de acesso (/acesso/obrigado-CURSO.html).
-  *Esta página precisará de lógica JS para saber para qual página de "obrigado" direcionar.*
--->
-<h1>Convite ao Patrono</h1>
-<p>Em construção...</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Pacto Recebido - Fábrica de Reis</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Fábrica de Reis</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="convite-patrono">
+        <div class="container">
+            <h1>Seu Pacto foi Recebido!</h1>
+            <p class="mensagem-confirmacao">Sua jornada está prestes a começar. Bem-vindo(a), futuro Rei/Rainha.</p>
+
+            <div class="convite-texto">
+                <p>Enquanto preparamos seu acesso, queremos lhe fazer um convite.</p>
+                <p>A 'Fábrica de Reis' é mantida por uma comunidade de Patronos que, assim como você, entendem o valor desta missão. Uma doação voluntária nos ajuda a manter esta ferramenta gratuita, a criar novos conteúdos e a financiar nossos projetos sociais.</p>
+                <p>Se sentir em seu coração o chamado para fortalecer este movimento, este é o momento.</p>
+            </div>
+
+            <div class="opcoes-acesso">
+                <a href="#" id="btn-doacao" class="btn-primary">FAZER UMA DOAÇÃO E ACESSAR</a>
+                <p class="ou">ou</p>
+                <a href="#" id="link-acesso-direto" class="link-secundario">SEGUIR PARA O CURSO SEM DOAR</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fábrica de Reis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseName = urlParams.get("course"); // Espera um parâmetro 'course' na URL
+
+            const accessLink = document.getElementById("link-acesso-direto");
+            const donationButton = document.getElementById("btn-doacao");
+
+            if (courseName) {
+                // Define o link de acesso direto para a página de obrigado correspondente
+                accessLink.href = `acesso/obrigado-${courseName}.html`;
+                // O botão de doação também deve levar para a página de doação, e depois para a de acesso
+                // Por enquanto, vamos apontar para a mesma página de acesso para simular
+                // Em uma implementação real, o link de doação seria gerado pelo Stripe/Mercado Pago
+                // e após a doação, redirecionaria para a página de acesso.
+                donationButton.href = `acesso/obrigado-${courseName}.html`; // Temporário
+            } else {
+                // Caso não haja parâmetro de curso, redireciona para a home ou exibe erro
+                accessLink.href = "index.html";
+                donationButton.href = "index.html";
+                console.warn("Nenhum curso especificado na URL. Redirecionando para a página inicial.");
+            }
+        });
+    </script>
+</body>
+</html>
 

@@ -1,12 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Fábrica de Reis</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Fábrica de Reis</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<!--
-  PÁGINA: Diagnóstico Geral (diagnostico.html)
-  OBJETIVO: Engajar o usuário com um quiz interativo para identificar sua necessidade.
-  COMPONENTES:
-  - Título: "Descubra Seu Ponto de Partida"
-  - Formulário/Quiz interativo (feito com JavaScript)
-  - Lógica: Ao final, redireciona para "resultado.html" passando os resultados.
--->
-<h1>Diagnóstico Geral</h1>
-<p>Em construção...</p>
+    <section id="diagnostico-intro">
+        <div class="container">
+            <h1>Descubra Seu Ponto de Partida</h1>
+            <p>Responda a algumas perguntas rápidas para entender melhor suas necessidades e descobrir qual jornada da Fábrica de Reis é ideal para você.</p>
+        </div>
+    </section>
+
+    <section id="diagnostico-form">
+        <div class="container">
+            <form id="quizForm">
+                <div class="form-group">
+                    <label for="pergunta1">Qual área da sua vida você sente que precisa de mais atenção no momento?</label>
+                    <select id="pergunta1" name="pergunta1">
+                        <option value="">Selecione uma opção</option>
+                        <option value="proposito">Propósito e Identidade</option>
+                        <option value="mentalidade">Mentalidade e Decisão</option>
+                        <option value="resiliencia">Resiliência e Força Interior</option>
+                        <option value="influencia">Impacto e Influência</option>
+                        <option value="financas">Finanças e Abundância</option>
+                        <option value="relacionamentos">Relacionamentos e Harmonia</option>
+                        <option value="saude">Saúde e Bem-estar</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pergunta2">Qual o seu maior desafio atualmente?</label>
+                    <textarea id="pergunta2" name="pergunta2" rows="4" placeholder="Descreva brevemente..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Ver Meu Diagnóstico</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fábrica de Reis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Script temporário para simular o redirecionamento
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Em uma implementação real, aqui haveria lógica para processar as respostas
+            // e determinar o resultado antes de redirecionar.
+            window.location.href = 'resultado.html';
+        });
+    </script>
+</body>
+</html>
 

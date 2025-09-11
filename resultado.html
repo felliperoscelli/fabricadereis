@@ -1,12 +1,107 @@
-<!--
-  PÁGINA: Resultado do Diagnóstico (resultado.html)
-  OBJETIVO: Mostrar o resultado visualmente e recomendar o produto ideal.
-  COMPONENTES:
-  - Gráfico de Radar (gerado com JS, ex: Chart.js)
-  - Texto interpretativo dinâmico
-  - CTA Principal: "Conheça a Mentoria [Produto Recomendado]" -> Leva para a página de produto específica.
-  - CTA Secundário: Link para "produtos/jornada-metanoia.html"
--->
-<h1>Resultado do Diagnóstico</h1>
-<p>Em construção...</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Diagnóstico - Fábrica de Reis</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Fábrica de Reis</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="diagnostico.html">Refazer Diagnóstico</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="resultado-diagnostico">
+        <div class="container">
+            <h1>Seu Diagnóstico: Descubra Seu Pilar de Foco</h1>
+            <p>Com base nas suas respostas, identificamos a área que mais precisa da sua atenção e o caminho ideal para sua transformação.</p>
+
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+
+            <div class="resultado-texto">
+                <h2>Seu maior ponto de atenção é: <span id="pilar-foco">[Pilar do Foco]</span></h2>
+                <p id="interpretacao-pilar">Aqui virá uma interpretação detalhada sobre o pilar identificado e por que ele é crucial para sua jornada.</p>
+            </div>
+
+            <div class="recomendacao-produto">
+                <h3>Nossa recomendação para você:</h3>
+                <h2 id="nome-produto-recomendado">[Nome do Produto Recomendado]</h2>
+                <p id="descricao-produto-recomendado">Uma breve descrição do produto recomendado e como ele pode te ajudar a fortalecer o pilar identificado.</p>
+                <a href="#" id="cta-produto-principal" class="btn-primary">Conheça a Mentoria [Nome do Produto Recomendado]</a>
+            </div>
+
+            <div class="cta-secundario">
+                <p>Prefere começar com um passo mais curto?</p>
+                <a href="produtos/jornada-metanoia.html" class="btn-secondary">Experimente a Jornada Metanoia</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fábrica de Reis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Script temporário para simular o resultado e a recomendação
+        document.addEventListener('DOMContentLoaded', function() {
+            // Em uma implementação real, os dados viriam do diagnóstico
+            const pilarFoco = "Trono"; // Exemplo
+            const produtoRecomendado = "Castelo Mental"; // Exemplo
+            const descricaoProduto = "Nesta mentoria, você aprenderá a construir uma mente inabalável, fortalecendo sua capacidade de decisão e resiliência.";
+
+            document.getElementById('pilar-foco').textContent = pilarFoco;
+            document.getElementById('interpretacao-pilar').textContent = `Seu resultado indica que seu maior ponto de atenção no momento é o **${pilarFoco}**. Isso sugere uma necessidade de fortalecer sua mente e suas decisões...`;
+            document.getElementById('nome-produto-recomendado').textContent = produtoRecomendado;
+            document.getElementById('descricao-produto-recomendado').textContent = descricaoProduto;
+            document.getElementById('cta-produto-principal').href = `produtos/${produtoRecomendado.toLowerCase().replace(/ /g, '-')}.html`;
+            document.getElementById('cta-produto-principal').textContent = `Conheça a Mentoria ${produtoRecomendado}`;
+
+            // Exemplo de dados para o gráfico de radar (seriam dinâmicos)
+            const data = {
+                labels: ['Coroa', 'Trono', 'Castelo', 'Reino', 'Tesouro', 'Cetro'],
+                datasets: [{
+                    label: 'Sua Força nos Pilares',
+                    data: [70, 30, 60, 80, 50, 75], // Valores de 0 a 100
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'radar',
+                data: data,
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: false
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            };
+
+            new Chart(document.getElementById('radarChart'), config);
+        });
+    </script>
+</body>
+</html>
 
